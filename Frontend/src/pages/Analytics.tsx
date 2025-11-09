@@ -37,7 +37,7 @@ const Analytics = () => {
       const token = localStorage.getItem("token");
       if (!token) throw new Error("No user token found — please log in first.");
 
-      const response = await fetch("http://localhost:5001/ai-insights", {
+      const response = await fetch("https://lucent-api.onrender.com/ai-insights", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const Analytics = () => {
     setStockData(null);
     try {
       const resp = await fetch(
-        `http://localhost:5001/trends/stocks?symbols=${encodeURIComponent(symbols)}`
+        `https://lucent-api.onrender.com/trends/stocks?symbols=${encodeURIComponent(symbols)}`
       );
       if (!resp.ok) {
         const body = await resp.json().catch(() => ({}));
@@ -89,7 +89,7 @@ const Analytics = () => {
     setCryptoError(null);
     setCryptoData(null);
     try {
-      const resp = await fetch(`http://localhost:5001/trends/crypto`);
+      const resp = await fetch(`https://lucent-api.onrender.com/trends/crypto`);
       if (!resp.ok) {
         const body = await resp.json().catch(() => ({}));
         throw new Error(body?.error || `Failed to fetch crypto: ${resp.status}`);

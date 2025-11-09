@@ -16,7 +16,7 @@ export default function News() {
   useEffect(() => {
     async function fetchNews() {
       try {
-        const response = await fetch("http://localhost:5001/market-news");
+        const response = await fetch("https://lucent-api.onrender.com/market-news");
         if (!response.ok) throw new Error("Failed to fetch news");
 
         const data = await response.json();

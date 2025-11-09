@@ -20,7 +20,7 @@ export const AIInsightsWidget = () => {
       const token = localStorage.getItem("token"); // JWT token from login/signup
       if (!token) throw new Error("User not authenticated");
 
-      const response = await fetch("http://localhost:5001/ai-insights", {
+      const response = await fetch("https://lucent-api.onrender.com/ai-insights", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

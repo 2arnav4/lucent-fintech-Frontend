@@ -57,7 +57,7 @@ export default function FIREWidget() {
     ).toLocaleString()} monthly expenses, and a ${savingsRate}% savings rate, estimate how many years it would take to reach financial independence (FIRE number = annual expenses × 25). Suggest actionable financial strategies to reach FIRE faster.keep it under 80 words`;
 
     try {
-      const res = await fetch("http://localhost:5001/ai-insights", {
+      const res = await fetch("https://lucent-api.onrender.com/ai-insights", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

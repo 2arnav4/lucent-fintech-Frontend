@@ -38,7 +38,7 @@ const Circles = () => {
     const token = localStorage.getItem("token");
     if (!token) {
       try {
-        const signupResp = await fetch("http://localhost:5001/signup", {
+        const signupResp = await fetch("https://lucent-api.onrender.com/signup", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -51,7 +51,7 @@ const Circles = () => {
           throw new Error("Failed to create test account");
         }
 
-        const loginResp = await fetch("http://localhost:5001/login", {
+        const loginResp = await fetch("https://lucent-api.onrender.com/login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -83,7 +83,7 @@ const Circles = () => {
       const token = await ensureAuth();
       if (!token) return;
 
-      const response = await fetch("http://localhost:5001/circles", {
+      const response = await fetch("https://lucent-api.onrender.com/circles", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -127,7 +127,7 @@ const Circles = () => {
         return;
       }
 
-      const response = await fetch("http://localhost:5001/circles", {
+      const response = await fetch("https://lucent-api.onrender.com/circles", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -171,7 +171,7 @@ const Circles = () => {
       }
 
       const response = await fetch(
-        `http://localhost:5001/circles/${selectedCircle.id}/expenses`,
+        `https://lucent-api.onrender.com/circles/${selectedCircle.id}/expenses`,
         {
           method: "POST",
           headers: {
