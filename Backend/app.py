@@ -10,7 +10,6 @@ import jwt
 import datetime
 import requests
 import tempfile
-import magic
 import re
 import json
 
@@ -488,14 +487,6 @@ def extract_bill_and_classify(user_id):
     filepath = os.path.join("uploaded_bills", filename)
     file.save(filepath)
 
-    try:
-        # Use python-magic to detect mime type
-        mime_detector = magic.Magic(mime=True)
-        mime_type = mime_detector.from_file(filepath)
-    except Exception as e:
-        # If mime detection fails, optionally fallback to mimetypes module
-        import mimetypes
-        mime_type, _ = mimetypes.guess_type(filepath)
 
     # Upload file to Gemini API (no mime_type param needed)
     uploaded_file = client.files.upload(file=filepath)

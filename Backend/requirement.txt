@@ -5,5 +5,4 @@ Werkzeug
 PyJWT
 requests
 google-genai
-python-magic
 requests
